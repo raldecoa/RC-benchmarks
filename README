@@ -1,0 +1,108 @@
+RC_generator.pl -- RC (Relaxed Caveman) benchmarks generator
+----------------------------------------------------------------------
+
+RC_generator.pl is a free, open source script for creating RC benchmarks
+to test network community detection algorithms.
+
+See references below for more information about the Relaxed Caveman benchmarks [1,2],
+Pielou's Index [3,4] and some works where RC benchmarks have been used [4-7].
+
+Version
+=======
+
+RC_generator.pl 1.0
+
+
+License
+=======
+
+Copyright (C) 2015  Rodrigo Aldecoa
+This script is distributed under the GNU General Public License
+version 3.0 (GPLv3). This license can be found online at
+http://www.opensource.org/licenses/gpl-3.0.html.
+
+
+Files
+=====
+
+In this distribution you will find the following files:
+
+README			- This file
+RC_generator.pl		- Generates the starting point of a RC benchmark
+			  (the initial communities that are represented by isolated cliques)
+RC_shuffler.pl		- Degrades the RC generated network by rewiring and removing links
+			  (if no link removal is desired, please comment line 39 of the code)
+gpl.txt			- Description of the license
+
+
+
+Example
+=====
+
+Pipeline:
+
+./RC_generator.pl -n 512 -c 16 -p 0.8      # Generates a network of 512 nodes composed of 16
+		     	       	  	   # isolated cliques, with a Pielou's Index of PI=0.8 
+
+./RC_shuffler.pl RC_PI-0.8.pairs	   # Shuffles and removes links from the network
+		 			   # generated with the previous command at different
+					   # steps (default from 10% to 90%)
+
+Output files
+=============
+
+The execution of the script of RC_generator.pl creates the following files:
+
+- RC_PI-0.8.pairs    	    # Network of isolated cliques. In this case with a PI=0.8
+- RC_PI-0.8.comm	    # Assigned communities for each node
+
+The execution of the script of RC_shuffler.pl creates the following files:
+
+- RC_PI-0.8_m0.pairs 	    # 
+- RC_PI-0.8_m10.pairs 	    # file_mX.pairs
+- .			    # Networks with a X% of degradation, 
+- .			    # where a X% of the original links have been removed
+- .			    # and a X% of the remaining are rewired
+- RC_PI-0.8_m90.pairs 	    #
+
+
+Resources. Report bugs or suggestions
+=====================================
+
+* Email: Rodrigo Aldecoa <raldecoa@neu.edu>
+
+
+References
+==========
+
+[1] Watts DJ (1999)
+    Small worlds. The dynamics of networks between order and randomness.
+    Princeton University Press, Princeton, N.J.
+
+[2] Schaeffer SE (2007)
+    Graph clustering.
+    Computer Science Review 1, 27-64.
+
+[3] Pielou EC (1966)
+    The measurement of diversity in different types of biological collections.
+    J Theor Biol 13, 131–144.
+
+[4] http://en.wikipedia.org/wiki/Species_evenness
+
+
+[5] Aldecoa R and Marín I (2010)
+    Deciphering network community structure by surprise.
+    PloS ONE 6, e24195.
+
+[6] Aldecoa R and Marín I (2013)
+    Surprise maximization reveals the community structure of complex networks.
+    Scientific reports 3,1060 (2013).
+
+[7] Sobolevsky S et al. (2014)
+    General optimization technique for high-quality community detection in complex networks.
+    Physical Review E 90, 012811.
+
+[8] Liu J and Ziheng W (2014)
+    Community Detection Based on Graph Dynamical Systems with Asynchronous Runs
+    IEEE Computing and Networking (CANDAR) 2014, 463-469
+    
