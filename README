@@ -4,8 +4,8 @@ RC_generator.pl -- RC (Relaxed Caveman) benchmarks generator
 RC_generator.pl is a free, open source script for creating RC benchmarks
 to test network community detection algorithms.
 
-See references below for more information about the Relaxed Caveman benchmarks [1,2],
-Pielou's Index [3,4] and some works where RC benchmarks have been used [4-7].
+See references below for more information about the Relaxed Caveman benchmarks [1,2], Pielou's Index [3,4] and some works where RC benchmarks have been used [4-7].
+
 
 Version
 =======
